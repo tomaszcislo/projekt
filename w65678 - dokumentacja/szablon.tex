@@ -1,0 +1,41 @@
+% **** Szablon pracy magisterskiej, licencjackiej lub inżynierskiej ****
+
+\documentclass[polish,12pt,twoside,a4paper]{report}
+
+\input{style.tex}
+
+%definicja przydatnych poleceń
+\newcommand{\wydzial}{KOLEGIUM INFORMATYKI STOSOWANEJ}
+\newcommand{\kierunek}{Kierunek: INFORMATYKA}
+\newcommand{\specjalnosc}{Grupa: 3IIZ/2024/25 GL04 }
+\newcommand{\autor}{Tomasz Cisło}
+\newcommand{\album}{Nr albumu studenta w65678, 3IIZ/GL04}
+\newcommand{\temat}{Aplikacja z możliwością nadania przesyłek}
+\newcommand{\promotor}{Mgr inż. Ewa Żesławska}
+\newcommand{\typpracy}{Programowanie obiektowe C\# - Projekt}
+\newcommand{\miasto}{Rzeszów}
+\newcommand{\rok}{2025}
+
+\begin{document}
+
+% *************** Włączenie definicji pierwszych stron ***************
+\input{front.tex}
+
+
+% *************** Część główna pracy ***************
+\input{wstep.tex}
+\newpage
+\input{opis_struktury_projektu.tex}
+\newpage
+\input{HarmonogramRealizacjiProjektu}
+\newpage
+\input{WarstwaUżytkowaProjektu}
+\newpage
+\input{Podsumowanie}
+\newpage
+\input{Literatura}
+
+
+
+\end{document}
+% *************** Koniec pliku szablon.tex ***************

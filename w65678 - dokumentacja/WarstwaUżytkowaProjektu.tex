@@ -1,0 +1,184 @@
+\section{Warstwa użytkowa projektu}
+
+Aplikacja PocztaExpress została stworzona w celu uproszczenia procesu nadawania paczek. Umożliwia użytkownikom szybkie i wygodne wypełnienie formularza nadawczego. Głównym celem aplikacji jest eliminacja potrzeby osobistego odwiedzania placówek pocztowych, co przekłada się na oszczędność czasu i zwiększenie wygody użytkownika.
+
+\subsection{Logowanie}
+
+W oknie logowania (Rysunek 4) użytkownik podaje swoje dane do logowania (login oraz hasło) wymagane do zalogowania się. Dodatkowo w polu tekstowym do podania swojego hasła można wyłączyć symbole zastępcze podczas gdy użytkownik wpisze ciąg swojego hasła. Po zaznaczeniu checkbox’a symbole zostaną wyłączone. Po wpisaniu hasła od użytkownika wymagane jest naciśnięcie przycisku „ZALOGUJ” w celu zalogowania się do aplikacji. Jeśli dane zostały poprawnie wpisane zostanie wyświetlony komunikat (Rysunek 5) o udanym zalogowaniu. W przypadku podania błędnych danych (loginu lub hasła) użytkownik nie zostanie zalogowany oraz zostanie wyświetlony komunikat  (Rysunek 6) o błędnym loginie lub haśle. Po naciśnięciu „OK” użytkownik będzie mógł poprawić swoje dane do logowania, a następnie podjąć próbę logowania ponownie.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/oknologowania.png}
+\caption{\footnotesize Okno logowania. }
+\label{fig:plotend}
+\end{figure}
+
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/udane_logowanie.png}
+\caption{\footnotesize Komunikat o pomyślnym zalogowaniu. }
+\label{fig:plotend}
+\end{figure}
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/niepoprawny_email.png}
+\caption{\footnotesize Komunikat o niepoprawnym zalogowaniu. }
+\label{fig:plotend}
+\end{figure}
+
+\newpage
+
+\subsection{Rejestracja}
+
+W przypadku braku konta, użytkownik może stworzyć swoje konto klikając przycisk „ZAREJESTRUJ SIĘ” (Rysunek 7) Procedura rejestracji wygląda tak samo jak w przypadku logowania się. Po zarejestrowaniu się, użytkownik będzie mógł się zalogować
+
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/rejestracja.png}
+\caption{\footnotesize Okno rejestracji. }
+\label{fig:plotend}
+\end{figure}
+
+\newpage
+\subsection{Nadanie przesyłki}
+
+Rysunek 8 przedstawia okno do nadania paczki służy do nadania paczki przez nadawcę. W tym celu od nadawcy (użytkownika aplikacji) wymagane jest wprowadzenie do każdego pola tekstowego dane paczki oraz dane odbiorcy. Po uzupełnieniu wszystkich danych, aby paczka została nadana wymagane jest naciśnięcie przycisku o nazwie „NADAJ”.
+W oknie również zaprezentowany jest cennik informujący o aktualnych cenach nadania paczki w zależności od jej rozmiaru
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=16.5cm, height=9cm]{figures/okno_glowne.png}
+\caption{\footnotesize Okno do nadania paczki. }
+\label{fig:plotend}
+\end{figure}
+
+\noindent Po nadaniu paczki zostanie wyświetlony komunikat o pomyślnym nadaniu paczki (Rysunek 9)
+
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/komunikat_o_poprawnym_nadaniu_paczki.png}
+\caption{\footnotesize Komunikat o poprawnym nadaniu paczki. }
+\label{fig:plotend}
+\end{figure}
+
+\noindent Okno główne aplikacji posiada menu boczne (Rysunek 10). Każdy przycisk odpowiada za otwarcie nowego okna zamykając aktualne. Menu boczne zostało zastosowane w każdym oknie ułatwiając przemieszczanie się do innych okien.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics{figures/menu_boczne.png}
+\caption{\footnotesize Menu boczne. }
+\label{fig:plotend}
+\end{figure}
+
+\noindent Menu boczne przedstawia następujące przyciski:
+
+\begin{itemize}
+\item Nadaj Paczkę – główne okno aplikacji – służy do nadania przesyłki wypełniając wcześniej formularz
+\item Historia Wysyłek – wyświetla historię nadanych przez użytkownika przesyłek
+\item Zmiana hasła – pozwala na zmianę hasła zalogowanego użytkownika
+\item Komentarze – wyświetla możliwość udzielenia komentarza
+\item Informacje – wyświetla informacje o aplikacji (np. wersja)
+\end{itemize}
+
+\newpage
+
+\subsection{Historia wysyłek}
+
+Po otworzeniu okna (Rysunek 11) zostanie wyświetlona lista prezentująca historię wysyłek wysłanych przez nadawcę (użytkownika)
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=16.5cm, height=9cm]{figures/okno_historiawysylek.png}
+\caption{\footnotesize Okno przedstawiające listę wysłanych przesyłek przez nadawcę (użytkownika). }
+\label{fig:plotend}
+\end{figure}
+
+\noindent Lista została stworzona za pomocą kontrolki DataGridView, który obsługuje standardowy model powiązania danych Windows Forms. Pobiera z bazy danych informację o wcześniej nadanych przesyłkach i je wyświetla. Lista historii jest przypisana do użytkownika. Dodatkowo wyświetla liczbę z punktami (ExpressPoints) które użytkownik posiada na swoim koncie. Punkty zdobywa się za nadanie paczek.
+
+\begin{itemize}
+\item Id – identyfikator przesyłki
+\item Imie\verb|_|odbiorcy – imię odbiorcy
+\item Nazwisko\verb|_|odbiorcy – nazwisko odbiorcy
+\item Ulica\verb|_|odbiorcy – ulica odbiorcy
+\item Nr\verb|_|domu\verb|_|odbiorcy – numer domu odbiorcy
+\item Kod\verb|_|pocztowy\verb|_|odbiorcy – kod pocztowy odbiorcy
+\item Miejscowosc – miejscowość odbiorcy
+\item E-mail – e-mail odbiorcy
+\item Wymiary - wymiary przesyłki
+\item Waga - waga przesyłki
+\end{itemize}
+
+
+\subsection{Zmiana hasła}
+
+Po otworzeniu okna (Rysunek 12) zostanie wyświetlony panel służący do zmiany aktualnego hasła
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=16.5cm, height=9cm]{figures/zmiana_hasla.png}
+\caption{\footnotesize Okno z możliwością zmiany hasła). }
+\label{fig:plotend}
+\end{figure}
+
+\noindent Panel zawiera 4 pola tekstowe wymagane do zmiany hasła oraz przycisk który zmienia hasło po wpisaniu danych do pól tekstowych.
+
+\begin{itemize}
+\item Login – pole tekstowe służące do wpisania swojego aktualnego loginu.
+\item Stare hasło – pole tekstowe służące do wpisania swojego aktualnego hasła.
+\item Nowe hasło – pole tekstowe służące do wpisania nowego hasła.
+\item Potwierdź hasło – pole tekstowe służące do wpisania ponownie nowego hasła.
+\end{itemize}
+
+\newpage
+
+\subsection{Komentarze}
+
+Okno (Rysunek 13) przedstawia możliwość umieszczenia komentarzy w celu komunikowania się z użytkownikami aplikacji, można zgłaszać swoje propozycje jak i również problemy dotyczące aplikacji.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=16.5cm, height=9cm]{figures/komentarze.png}
+\caption{\footnotesize Okno zawierające możliwość komentowania. }
+\label{fig:plotend}
+\end{figure}
+
+\subsection{Informacje}
+
+Okno (Rysunek14) wyświetla kontakt do administratora aplikacji oraz aktualną wersję aplikacji.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=16.5cm, height=9cm]{figures/informacje.png}
+\caption{\footnotesize Okno zawierające informacje o aplikacji). }
+\label{fig:plotend}
+\end{figure}
+
+\newpage
+\subsection{Panel administratora}
+Aplikacja zawiera również panel sterowania dostępny tylko dla administratora aplikacji (Rysunek 15). Po podaniu e-mailu, hasła administratora oraz zalogowaniu się, pojawi się okno z panelem dla administratora.
+Panel zawiera listę paczek które zostały nadane od wszystkich użytkowników w aplikacji. Dodatkowo administrator ma możliwość zmiany aktualnych cen nadaniu przesyłki, ale również zmiany kontaktu oraz wersji w formie tekstowej które znajdują się w oknie dotyczące informacji o aplikacji.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=16.5cm, height=9cm]{figures/admin.png}
+\caption{\footnotesize Panel administratora}
+\label{fig:plotend}
+\end{figure}
+
+
+\subsection{Zamknięcie aplikacji}
+
+W każdym oknie aplikacji występuje ikona (Rysunek 16) umożliwiająca zamknięcie aplikacji
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=1.5cm, height=1.5cm]{figures/ikona zamkniecia.png}
+\caption{\footnotesize Ikona umożliwiająca zamknięcie aplikacji. }
+\label{fig:plotend}
+\end{figure}
